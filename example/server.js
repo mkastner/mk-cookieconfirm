@@ -4,19 +4,21 @@ const port = 4001;
 
 function requestHandler(req, res) {
   
-  let path = `example${req.url}`;
-  
   if (req.url.match(/favicon\.ico$/)) {
-    let binary = fs.readFileSync(path);
+    let binary = fs.readFileSync('./binary');
     res.writeHead(200, {
       'Content-Type': 'image/x-icon',
     });
     return res.end(binary, 'binary'); 
   }
   
+  let path = `example${req.url}`;
   let contentType;  
   
   if (req.url.match(/\.js$/)) {
+    if (req.url.match(/\/index/)) {
+      path = path.replace('example/', ''); 
+    }
     contentType = 'application/javascript';
   } else if (req.url.match(/\.css/)) {
     contentType = 'text/css';
