@@ -10,7 +10,7 @@
     theme: '',  
     exDays: 14, 
     privacyUrl: '/datenschutz',
-    styleUrl: '/cookieconfirm.css',
+    styleUrl: '',
     domain: null,
     alert: 'Unsere Website verwendet an einigen Stellen sogenannte Cookies.',
     description: 'Sie dienen dazu, das Angebot nutzerfreundlicher zu machen. Sie können in Ihren Browser-Einstellungen festlegen, dass keine Cookies gespeichert werden. Wir weisen darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website in vollem Umfang nutzen können.',
@@ -174,13 +174,14 @@
   }
 
   function addCss() {
-    var styleEl = createEl('link', {
-      type: 'text/css',
-      rel: 'stylesheet',
-      href: options.styleUrl
-    }); 
-    document.head.appendChild(styleEl);
-    
+    if (options.styleUrl) {
+      var styleEl = createEl('link', {
+        type: 'text/css',
+        rel: 'stylesheet',
+        href: options.styleUrl
+      }); 
+      document.head.appendChild(styleEl);
+    } 
   }
 
   if (window.location.hostname.indexOf(options.domain) !== -1) {
