@@ -1,8 +1,9 @@
-var __CC_OPTIONS__ = {
-  domain: 'fmh.de'   
-};
-
 (function() {
+  
+  if (typeof __CC_OPTIONS__ === 'undefined') {
+    console.warn('__CC_OPTIONS__ must be set with domain');
+    return false;
+  }
 
   var options = {
     block: 'cookieconfirm',
