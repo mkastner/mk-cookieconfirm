@@ -107,13 +107,13 @@
   var ccButtonBar = createEl('div', {
     class: styleClass('button-bar')
   });
-  ccDialog.append(ccButtonBar);
+  ccDialog.appendChild(ccButtonBar);
   
   var ccButton = createEl('button', {
     class: styleClass('button'),
     id: 'cookieconfirm-button'
   }, options.button);
-  ccButtonBar.append(ccButton);
+  ccButtonBar.appendChild(ccButton);
   
   // stole this from https://www.w3schools.com/js/js_cookies.asp
 
